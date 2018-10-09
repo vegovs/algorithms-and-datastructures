@@ -1,5 +1,5 @@
 /* Binary search tree class */
-public class BinarySearchTree<Key extends Comparable<Key>, Value>{
+public class BinarySearchTree<Key extends Comparable<Key>>{
 	BSTNode root;
 
 	/* Binary search tree helper class */
