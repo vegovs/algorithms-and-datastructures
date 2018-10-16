@@ -1,49 +1,50 @@
-/* Binary search tree helper class */
-class BSTNode{
-	public int key;
-	public BSTNode left, right;
-
-	public BSTNode(int key){
-		this.key = key;
-		this.left = null;
-		this.right = null;
-	}
-
-	public String toString(){
-		return "Node: " + key;
-	}
-
-}
-
 /* Binary search tree class */
-class BST{
+public class BinarySearchTree<Key extends Comparable<Key>>{
 	BSTNode root;
 
-	public BST(){
+	/* Binary search tree helper class */
+	private class BSTNode{
+		public Key key;
+		public BSTNode left, right;
+
+		public BSTNode(Key key){
+			this.key = key;
+			this.left = null;
+			this.right = null;
+		}
+
+		public String toString(){
+			return "Node: " + key.toString();
+		}
+
+	}
+
+
+	public BinarySearchTree(){
 		root = null;
 	}
 
-	public BST(int key){
+	public BinarySearchTree(Key key){
 		root = new BSTNode(key);
 	}
 
 	/* Calls recursive insert function */
-	void insert(int key){
+	void insert(Key key){
 		root = insert(root,key);
 	}
 
 	/* Recursive insertions function */
-	public BSTNode insert(BSTNode focus, int key){
+	public BSTNode insert(BSTNode focus, Key key){
 		/* If empty tree */
 		if(focus == null){
 			focus = new BSTNode(key);
 			return focus;
 		}
 
-		if(key < focus.key){
+		if(key.compareTo(focus.key) < 0){
 			focus.left = insert(focus.left, key);
 		}
-		else if(key > focus.key){
+		else if(key.compareTo(focus.key) > 0){
 			focus.right = insert(focus.right, key);
 		}
 
@@ -51,19 +52,19 @@ class BST{
 	}
 
 	/* Calls Recursive search function from root*/
-	public BSTNode search(int key){
+	public BSTNode search(Key key){
 		return search(root, key);
 	}
 
 	/* Recursive search function */
-	public BSTNode search(BSTNode focus, int key){
+	public BSTNode search(BSTNode focus, Key key){
 		if(focus == null){
 			return null;
 		}
-		else if(key < focus.key){
+		else if(key.compareTo(focus.key) < 0){
 			return search(focus.left, key);
 		}
-		else if(key > focus.key){
+		else if(key.compareTo(focus.key) > 0){
 			return search(focus.right, key);
 		}
 		else{
@@ -114,22 +115,22 @@ class BST{
 	}
 
 	/* Recursive delete function from root*/
-	public BSTNode delete(int key){
+	public BSTNode delete(Key key){
 		return delete(root, key);
 	}
 
 	/* Recursive delete function */
-	public BSTNode delete(BSTNode focus, int key){
+	public BSTNode delete(BSTNode focus, Key key){
 		/* If empty tree */
 		if(focus == null){
 			return null;
 		}
 
 		/* Traverse */
-		if(key < focus.key){
+		if(key.compareTo(focus.key) < 0){
 			focus.left = delete(focus.left, key);
 		}
-		else if(key > focus.key){
+		else if(key.compareTo(focus.key) > 0){
 			focus.right = delete(focus.right, key);
 		}
 
@@ -166,7 +167,7 @@ class BST{
 	/* Main function for testing */
 	public static void main(String[] args){
 
-		BST bst = new BST(8);
+		BinarySearchTree bst = new BinarySearchTree(8);
         bst.insert(6); 
         bst.insert(2); 
         bst.insert(5); 
