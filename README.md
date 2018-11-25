@@ -7,3 +7,4 @@ Algorithms and Data structures implemented for educational purpose in coherence 
 ## Implemented Algorithms
 * Depth first search [:white_check_mark:](/DepthFirstSearch.java)
 * Breadth first search [:white_check_mark:](/BreadthFirstSearch.java)
+* Insertion sort [:white_check_mark:](/InsertionSort.java)
