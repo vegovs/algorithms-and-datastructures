@@ -8,3 +8,4 @@ Algorithms and Data structures implemented for educational purpose in coherence 
 * Depth first search [:white_check_mark:](/DepthFirstSearch.java)
 * Breadth first search [:white_check_mark:](/BreadthFirstSearch.java)
 * Insertion sort [:white_check_mark:](/InsertionSort.java)
+* Generate permutations [:white_check_mark:](/GeneratePermutations.java)
